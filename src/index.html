@@ -7,46 +7,72 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Leaderboard Exercice</title>
+    <script defer src="/leaderboard-project/main.js"></script>
 </head>
 
 <body>
-    <h1>Leaderboard</h1>
 
     <main>
-
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-4">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-muted">Recent scores</span>
-                    <span><button type="submit" class="btn btn-refresh">Refresh</button></span>
-                </h4>
-                <ul class="list-scores">
-                    <li class="list-score-item">
-                        <strong>Name: 100</strong>
-                    </li>
-                    <li class="list-score-item">
-                        <strong>Name: 20</strong>
-                    </li>
-                    <li class="list-score-item">
-                        <strong>Name: 50</strong>
-                    </li>
-                    <li class="list-score-item">
-                        <strong>Name: 78</strong>
-                    </li>
-                    <li class="list-score-item">
-                        <strong>Name: 125</strong>
-                    </li>
-                    <li class="list-score-item">
-                        <strong>Name: 77</strong>
-                    </li>
-                    <li class="list-score-item">
-                        <strong>Name: 42</strong>
-                    </li>
-                </ul>
+        <div class="container">
+            <div class="top-title">
+                <h1>Leaderboard</h1>
             </div>
-            <div class="col-md-4">
-                ffff
 
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-5">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="title">Recent scores</span>
+                        <span><button type="submit" class="btn btn-refresh">Refresh</button></span>
+                    </h4>
+                    <ul class="list-scores">
+                        <li class="list-score-item">
+                            <strong>Name: 100</strong>
+                        </li>
+                        <li class="list-score-item">
+                            <strong>Name: 20</strong>
+                        </li>
+                        <li class="list-score-item">
+                            <strong>Name: 50</strong>
+                        </li>
+                        <li class="list-score-item">
+                            <strong>Name: 78</strong>
+                        </li>
+                        <li class="list-score-item">
+                            <strong>Name: 125</strong>
+                        </li>
+                        <li class="list-score-item">
+                            <strong>Name: 77</strong>
+                        </li>
+                        <li class="list-score-item">
+                            <strong>Name: 42</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="mb-3">
+                        <span class="title">Add your score</span>
+
+                    </h4>
+                    <form>
+                        <div class="input-group">
+
+                            <div class="input-group">
+
+                                <span>
+                                <input type="text" placeholder="Your name">
+                            </span>
+
+                                <span>
+                                <input type="text" placeholder="Your score">
+                            </span>
+
+                                <button type="submit" class="btn btn-add">Submit</button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
     </main>

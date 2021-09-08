@@ -76,6 +76,5 @@ span.title {
 @media all and (max-width: 768px) {
   body {
     color: black;
-    color: blue;
   }
 }

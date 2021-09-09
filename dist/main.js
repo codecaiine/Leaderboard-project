@@ -110,6 +110,16 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 
 /***/ }),
 
+/***/ "./src/api/error.js":
+/*!**************************!*\
+  !*** ./src/api/error.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((msg, bgColor) => {\n  const myContainer = document.querySelector('.top-title');\n  const error = document.createElement('div');\n  error.textContent = msg;\n  error.classList.add(bgColor);\n  setTimeout(() => {\n    error.classList.add('alert');\n  }, 500);\n  myContainer.appendChild(error);\n  setTimeout(() => {\n    myContainer.removeChild(error);\n  }, 3500);\n});\n\n//# sourceURL=webpack://leaderboard-project/./src/api/error.js?");
+
+/***/ }),
+
 /***/ "./src/api/getScores.js":
 /*!******************************!*\
   !*** ./src/api/getScores.js ***!
@@ -146,7 +156,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _api_getScores_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api/getScores.js */ \"./src/api/getScores.js\");\n/* harmony import */ var _api_postScores_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api/postScores.js */ \"./src/api/postScores.js\");\n/* harmony import */ var _api_showScores_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./api/showScores.js */ \"./src/api/showScores.js\");\n\n\n\n\n\nconst url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/LPtxThYxLPjCftqWH3A6/scores';\n\nconst refreshButton = document.querySelector('.btn-refresh');\nconst form = document.getElementById('form-submission');\n\nform.addEventListener('click', async (ev) => {\n  ev.preventDefault();\n  (0,_api_postScores_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(url);\n});\n\nrefreshButton.addEventListener('click', () => {\n  (0,_api_getScores_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(url).then((data) => { (0,_api_showScores_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(data.result); });\n});\n\nwindow.onload = (0,_api_getScores_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(url).then((data) => { (0,_api_showScores_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(data.result); });\n\n//# sourceURL=webpack://leaderboard-project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _api_getScores_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api/getScores.js */ \"./src/api/getScores.js\");\n/* harmony import */ var _api_postScores_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api/postScores.js */ \"./src/api/postScores.js\");\n/* harmony import */ var _api_showScores_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./api/showScores.js */ \"./src/api/showScores.js\");\n/* harmony import */ var _api_error_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./api/error.js */ \"./src/api/error.js\");\n\n\n\n\n\n\nconst url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/rERLsIh7NMEJsjCiciOY/scores';\n\nconst refreshButton = document.querySelector('.btn-refresh');\nconst addButton = document.getElementById('btn-submit');\nconst form = document.getElementById('form-submission');\n\naddButton.addEventListener('click', async (e) => {\n  e.preventDefault();\n  const name = form.name.value;\n  const score = form.score.value;\n  if (score.match(/^[0-9]+$/) == null || name === '') {\n    (0,_api_error_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])('Invalid input!', 'alert-danger');\n  } else {\n    (0,_api_error_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])('Score added succesfully!', 'alert-success');\n    (0,_api_postScores_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(url);\n  }\n});\n\nrefreshButton.addEventListener('click', () => {\n  (0,_api_getScores_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(url).then((data) => { (0,_api_showScores_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(data.result); });\n});\n\nwindow.onload = (0,_api_getScores_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(url).then((data) => { (0,_api_showScores_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(data.result); });\n\n//# sourceURL=webpack://leaderboard-project/./src/index.js?");
 
 /***/ })
 

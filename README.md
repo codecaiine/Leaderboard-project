@@ -1,14 +1,14 @@
-# Leaderboard: setup project
+# Leaderboard
 
-This is JavaScript project for the Leaderboard list app, using webpack and ES6 features, notably modules. This is the first working version of the wireframe without styling .
+The leaderboard website displays scores submitted by different players. It also allows you to submit your score. All data is preserved with the external Leaderboard API service.
 
-![screenshot](./src/img/demo-l.PNG)
+![screenshot](./src/img/demo-leaderboard.PNG)
 
  
 
 ## Live Demo
 
-[Live Demo Link](https://codecaiine.github.io/leaderboard-project/)
+[Live Demo Link](https://codecaiine.github.io/leaderboard-project/dist)
  
 ## Built 
 - HTML

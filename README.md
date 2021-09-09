@@ -2,7 +2,7 @@
 
 This is JavaScript project for the Leaderboard list app, using webpack and ES6 features, notably modules. This is the first working version of the wireframe without styling .
 
-![screenshot](./src/demo-l.PNG)
+![screenshot](./src/img/demo-l.PNG)
 
  
 

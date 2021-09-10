@@ -8,7 +8,7 @@
 
     <title>Leaderboard Exercice</title>
     <script defer src="/leaderboard-project/main.js"></script>
-<script defer src="/leaderboard-project/main.js"></script></head>
+</head>
 
 <body>
 
@@ -17,35 +17,14 @@
             <div class="top-title">
                 <h1>Leaderboard</h1>
             </div>
-
             <div class="row d-flex justify-content-center">
                 <div class="col-md-5">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="title">Recent scores</span>
-                        <span><button type="submit" class="btn btn-refresh">Refresh</button></span>
+                        <span><button type="button" class="btn btn-refresh">Refresh</button></span>
                     </h4>
                     <ul class="list-scores">
-                        <li class="list-score-item">
-                            <strong>Name: 100</strong>
-                        </li>
-                        <li class="list-score-item">
-                            <strong>Name: 20</strong>
-                        </li>
-                        <li class="list-score-item">
-                            <strong>Name: 50</strong>
-                        </li>
-                        <li class="list-score-item">
-                            <strong>Name: 78</strong>
-                        </li>
-                        <li class="list-score-item">
-                            <strong>Name: 125</strong>
-                        </li>
-                        <li class="list-score-item">
-                            <strong>Name: 77</strong>
-                        </li>
-                        <li class="list-score-item">
-                            <strong>Name: 42</strong>
-                        </li>
+
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -53,20 +32,20 @@
                         <span class="title">Add your score</span>
 
                     </h4>
-                    <form>
+                    <form id="form-submission">
                         <div class="input-group">
 
                             <div class="input-group">
 
                                 <span>
-                                <input type="text" placeholder="Your name">
+                                <input type="text" name="name" placeholder="Your name" id="add-name" >
                             </span>
 
                                 <span>
-                                <input type="text" placeholder="Your score">
+                                <input type="number" name="score" placeholder="Your score" id="add-score">
                             </span>
 
-                                <button type="submit" class="btn btn-add">Submit</button>
+                                <button type="submit" class="btn btn-add" id="btn-submit">Submit</button>
                             </div>
 
                         </div>

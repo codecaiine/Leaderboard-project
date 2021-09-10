@@ -38,6 +38,7 @@
     },
     "dependencies": {
         "gh-pages": "^3.2.3",
-        "lodash": "^4.17.21"
+        "lodash": "^4.17.21",
+        "node-fetch": "^2.6.2"
     }
 }

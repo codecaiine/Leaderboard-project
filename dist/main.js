@@ -30,6 +30,16 @@ eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n
 
 /***/ }),
 
+/***/ "./node_modules/node-fetch/browser.js":
+/*!********************************************!*\
+  !*** ./node_modules/node-fetch/browser.js ***!
+  \********************************************/
+/***/ ((module, exports) => {
+
+eval("\n\n// ref: https://github.com/tc39/proposal-global\nvar getGlobal = function () {\n\t// the only reliable means to get the global object is\n\t// `Function('return this')()`\n\t// However, this causes CSP violations in Chrome apps.\n\tif (typeof self !== 'undefined') { return self; }\n\tif (typeof window !== 'undefined') { return window; }\n\tif (typeof global !== 'undefined') { return global; }\n\tthrow new Error('unable to locate global object');\n}\n\nvar global = getGlobal();\n\nmodule.exports = exports = global.fetch;\n\n// Needed for TypeScript and Webpack.\nif (global.fetch) {\n\texports[\"default\"] = global.fetch.bind(global);\n}\n\nexports.Headers = global.Headers;\nexports.Request = global.Request;\nexports.Response = global.Response;\n\n//# sourceURL=webpack://leaderboard-project/./node_modules/node-fetch/browser.js?");
+
+/***/ }),
+
 /***/ "./src/style.css":
 /*!***********************!*\
   !*** ./src/style.css ***!
@@ -100,13 +110,53 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 
 /***/ }),
 
+/***/ "./src/api/error.js":
+/*!**************************!*\
+  !*** ./src/api/error.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((msg, bgColor) => {\n  const myContainer = document.querySelector('.top-title');\n  const error = document.createElement('div');\n  error.textContent = msg;\n  error.classList.add(bgColor);\n  setTimeout(() => {\n    error.classList.add('alert');\n  }, 500);\n  myContainer.appendChild(error);\n  setTimeout(() => {\n    myContainer.removeChild(error);\n  }, 3500);\n});\n\n//# sourceURL=webpack://leaderboard-project/./src/api/error.js?");
+
+/***/ }),
+
+/***/ "./src/api/getScores.js":
+/*!******************************!*\
+  !*** ./src/api/getScores.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst fetch = __webpack_require__(/*! node-fetch */ \"./node_modules/node-fetch/browser.js\");\n\nconst getScores = async (url) => {\n  const response = await fetch(url, { method: 'GET' });\n  if (!response.ok) {\n    throw new Error(`API error! status: ${response.status}`);\n  } else {\n    return response.json();\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getScores);\n\n//# sourceURL=webpack://leaderboard-project/./src/api/getScores.js?");
+
+/***/ }),
+
+/***/ "./src/api/postScores.js":
+/*!*******************************!*\
+  !*** ./src/api/postScores.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst fetch = __webpack_require__(/*! node-fetch */ \"./node_modules/node-fetch/browser.js\");\n\nconst addName = document.getElementById('add-name');\nconst addScore = document.getElementById('add-score');\n\nconst postScores = async (url) => {\n  const response = await fetch(url, {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json',\n    },\n    body: JSON.stringify({\n      user: addName.value,\n      score: addScore.value,\n    }),\n  });\n\n  if (!response.ok) {\n    throw new Error(`API error! status: ${response.status}`);\n  } else {\n    addName.value = '';\n    addScore.value = '';\n    return response.json();\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (postScores);\n\n//# sourceURL=webpack://leaderboard-project/./src/api/postScores.js?");
+
+/***/ }),
+
+/***/ "./src/api/showScores.js":
+/*!*******************************!*\
+  !*** ./src/api/showScores.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst listScore = document.querySelector('.list-scores');\n\nfunction showScores(gameScores) {\n  listScore.innerHTML = '';\n  gameScores.forEach((gameScore) => {\n    const content = `${gameScore.user}: ${gameScore.score}`;\n    const myList = document.createElement('li');\n    myList.innerText = content;\n    myList.className = 'list-score-item';\n    listScore.appendChild(myList);\n  });\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showScores);\n\n//# sourceURL=webpack://leaderboard-project/./src/api/showScores.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n//# sourceURL=webpack://leaderboard-project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _api_getScores_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api/getScores.js */ \"./src/api/getScores.js\");\n/* harmony import */ var _api_postScores_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api/postScores.js */ \"./src/api/postScores.js\");\n/* harmony import */ var _api_showScores_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./api/showScores.js */ \"./src/api/showScores.js\");\n/* harmony import */ var _api_error_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./api/error.js */ \"./src/api/error.js\");\n\n\n\n\n\n\nconst url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/rERLsIh7NMEJsjCiciOY/scores';\n\nconst refreshButton = document.querySelector('.btn-refresh');\nconst addButton = document.getElementById('btn-submit');\nconst form = document.getElementById('form-submission');\n\naddButton.addEventListener('click', async (e) => {\n  e.preventDefault();\n  const name = form.name.value;\n  const score = form.score.value;\n  if (score.match(/^[0-9]+$/) == null || name === '') {\n    (0,_api_error_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])('Invalid input!', 'alert-danger');\n  } else {\n    (0,_api_error_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])('Score added succesfully!', 'alert-success');\n    (0,_api_postScores_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(url);\n  }\n});\n\nrefreshButton.addEventListener('click', () => {\n  (0,_api_getScores_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(url).then((data) => { (0,_api_showScores_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(data.result); });\n});\n\nwindow.onload = (0,_api_getScores_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(url).then((data) => { (0,_api_showScores_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(data.result); });\n\n//# sourceURL=webpack://leaderboard-project/./src/index.js?");
 
 /***/ })
 

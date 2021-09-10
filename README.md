@@ -8,7 +8,7 @@ The leaderboard website displays scores submitted by different players. It also 
 
 ## Live Demo
 
-[Live Demo Link](https://codecaiine.github.io/leaderboard-project/dist)
+[Live Demo Link](https://codecaiine.github.io/leaderboard-project/)
  
 ## Built 
 - HTML

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Leaderboard Exercice</title>
+    <title>Leaderboard</title>
     <script defer src="/leaderboard-project/main.js"></script>
 </head>
 
@@ -19,37 +19,35 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-5">
-                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="d-flex justify-content-between align-items-center">
                         <span class="title">Recent scores</span>
-                        <span><button type="button" class="btn btn-refresh">Refresh</button></span>
+                        <span><button type="button" class="badge btn-primary rounded-pill btn-refresh">Refresh</button></span>
                     </h4>
                     <ul class="list-scores">
-
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h4 class="mb-3">
-                        <span class="title">Add your score</span>
-
-                    </h4>
-                    <form id="form-submission">
-                        <div class="input-group">
-
-                            <div class="input-group">
-
-                                <span>
-                                <input type="text" name="name" placeholder="Your name" id="add-name" >
-                            </span>
-
-                                <span>
-                                <input type="number" name="score" placeholder="Your score" id="add-score">
-                            </span>
-
-                                <button type="submit" class="btn btn-add" id="btn-submit">Submit</button>
+                    <div class="container mt-5 mb-5 d-flex justify-content-center">
+                        <form id="form-submission">
+                            <div class="card px-1 py-4">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3 text-center">Add your score</h5>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="name" placeholder="Your name" id="add-name"> </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <input class="form-control" type="number" name="score" placeholder="Your score" id="add-score"> </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary btn-block confirm-button" type="submit" id="btn-submit">Submit</button>
+                                </div>
                             </div>
-
-                        </div>
-                    </form>
+                        </form>
+                    </div>
 
                 </div>
             </div>
